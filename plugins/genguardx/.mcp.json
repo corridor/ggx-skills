@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "genguardx": {
+      "type": "http",
+      "url": "${GGX_URL:-https://aisandbox.genguardx.ai}/mcp"
+    }
+  }
+}

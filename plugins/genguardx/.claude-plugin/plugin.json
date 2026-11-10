@@ -1,0 +1,15 @@
+{
+  "name": "genguardx",
+  "displayName": "GenGuardX",
+  "version": "0.1.0",
+  "description": "Connect Claude Code to your GenGuardX instance: read and author GGX objects, run evaluations, read feedback and search the docs.",
+  "author": {
+    "name": "Corridor Platforms",
+    "email": "support@corridorplatforms.com",
+    "url": "https://corridorplatforms.com"
+  },
+  "homepage": "https://genguardx.ai",
+  "repository": "https://github.com/corridor/ggx-skills",
+  "license": "Apache-2.0",
+  "keywords": ["genguardx", "ggx", "mcp", "ai-governance", "evaluation"]
+}

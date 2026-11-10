@@ -1,0 +1,16 @@
+{
+  "name": "ggx-skills",
+  "description": "GenGuardX plugins for Claude Code",
+  "owner": {
+    "name": "Corridor Platforms",
+    "email": "support@corridorplatforms.com",
+    "url": "https://corridorplatforms.com"
+  },
+  "plugins": [
+    {
+      "name": "genguardx",
+      "source": "./plugins/genguardx",
+      "description": "Connect Claude Code to your GenGuardX instance: read and author GGX objects, run evaluations, read feedback and search the docs."
+    }
+  ]
+}
