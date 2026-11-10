@@ -1,7 +1,7 @@
 {
   "name": "genguardx",
   "displayName": "GenGuardX",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect Claude Code to your GenGuardX instance: read and author GGX objects, run evaluations, read feedback and search the docs.",
   "author": {
     "name": "Corridor Platforms",
