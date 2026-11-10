@@ -9,29 +9,29 @@ const __dirname = path.dirname(__filename);
 export default Plugin.define({
   id: "genguardx",
   async setup(ctx) {
-    const ggxUrl = (process.env.GGX_URL || (ctx.options as any)?.ggxUrl || "").trim();
+    const ggxUrl = (
+      process.env.GGX_URL ||
+      (ctx.options as any)?.ggxUrl ||
+      "https://aisandbox.genguardx.ai"
+    ).trim();
     const apiKey = (process.env.GGX_API_KEY || (ctx.options as any)?.apiKey || "").trim();
 
-    if (ggxUrl) {
-      const url = ggxUrl.replace(/\/$/, "") + "/mcp";
-      const headers: Record<string, string> = {};
-      if (apiKey) {
-        headers["Authorization"] = `Bearer ${apiKey}`;
-      }
+    const url = ggxUrl.replace(/\/$/, "") + "/mcp";
+    const headers: Record<string, string> = {};
+    if (apiKey) {
+      headers["Authorization"] = `Bearer ${apiKey}`;
+    }
 
-      try {
-        await ctx.mcp.transform((editor) => {
-          editor.set("genguardx", {
-            type: "remote",
-            url,
-            headers: Object.keys(headers).length > 0 ? headers : undefined,
-          } as any);
-        });
-      } catch (err) {
-        // best effort
-      }
-    } else if ((ctx.options as any)?.notifyOnMissing !== false) {
-      // If no URL set, still allow registration to fail gracefully; OpenCode will handle
+    try {
+      await ctx.mcp.transform((editor) => {
+        editor.set("genguardx", {
+          type: "remote",
+          url,
+          headers: Object.keys(headers).length > 0 ? headers : undefined,
+        } as any);
+      });
+    } catch (err) {
+      // best effort
     }
 
     // Ship/register skill if present

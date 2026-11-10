@@ -95,7 +95,7 @@ Install the package:
 pi install npm:@genguardx/pi
 ```
 
-Set your instance URL (without `/mcp`). If not set, no server is registered:
+Set your instance URL (without `/mcp`) if you want to use a custom instance. If not set, the public sandbox `https://aisandbox.genguardx.ai` is used:
 
 ```sh
 export GGX_URL=https://aisandbox.genguardx.ai

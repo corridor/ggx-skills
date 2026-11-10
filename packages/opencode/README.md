@@ -18,13 +18,11 @@ Or add to `opencode.jsonc`:
 
 ## Configuration
 
-Set environment variables before starting OpenCode:
+Set `GGX_URL` (without `/mcp`) if you want to use a custom instance. If not set, the public sandbox `https://aisandbox.genguardx.ai` is used. Set `GGX_API_KEY` for bearer auth, otherwise use OAuth.
 
 ```sh
 export GGX_URL=https://aisandbox.genguardx.ai
 export GGX_API_KEY=your-key  # optional
 ```
 
-If `GGX_URL` is not set, defaults to the public sandbox `https://aisandbox.genguardx.ai`. If no API key is set, OAuth is used.
-
-The plugin registers the `genguardx` remote MCP server and ships the `genguardx` skill.
+Sign in as prompted by OpenCode. The plugin registers the `genguardx` remote MCP server and ships the `genguardx` skill.
