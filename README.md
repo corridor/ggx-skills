@@ -86,3 +86,43 @@ See [PRIVACY.md](PRIVACY.md) and [SECURITY.md](SECURITY.md).
 ## License
 
 [Apache-2.0](LICENSE)
+
+## Pi
+
+Install the package:
+
+```sh
+pi install npm:@genguardx/pi
+```
+
+Set your instance URL (without `/mcp`). If not set, no server is registered:
+
+```sh
+export GGX_URL=https://aisandbox.genguardx.ai
+```
+
+To use an API key instead of OAuth, set `GGX_API_KEY`:
+
+```sh
+export GGX_API_KEY=your-key
+```
+
+Sign in with OAuth if not using an API key: `pi mcp login genguardx`. The skill is shipped with the package.
+
+## OpenCode
+
+Install the plugin:
+
+```sh
+opencode plugin add @genguardx/opencode
+```
+
+Or add to `opencode.jsonc`:
+
+```jsonc
+{
+  "plugins": ["@genguardx/opencode"]
+}
+```
+
+Set `GGX_URL` (without `/mcp`). Default sandbox is `https://aisandbox.genguardx.ai` if not set. Set `GGX_API_KEY` for bearer auth, otherwise use OAuth. Sign in as prompted by OpenCode. The skill is shipped with the plugin.

@@ -1,0 +1,32 @@
+{
+  "name": "@genguardx/pi",
+  "version": "0.1.0",
+  "description": "GenGuardX MCP server and skill for Pi",
+  "license": "Apache-2.0",
+  "keywords": [
+    "pi-package"
+  ],
+  "type": "module",
+  "files": [
+    "extensions",
+    "skills",
+    "README.md"
+  ],
+  "pi": {
+    "extensions": [
+      "./extensions/genguardx.ts"
+    ],
+    "skills": [
+      "./skills/genguardx"
+    ]
+  },
+  "scripts": {
+    "prepack": "node ../../scripts/copy-skill.js pi"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*",
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-agent-core": "*",
+    "@earendil-works/pi-tui": "*"
+  }
+}

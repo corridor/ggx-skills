@@ -1,0 +1,31 @@
+{
+  "name": "@genguardx/opencode",
+  "version": "0.1.0",
+  "description": "GenGuardX MCP server and skill for OpenCode",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "skills",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepack": "node ../../scripts/copy-skill.js opencode && npm run build"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}
