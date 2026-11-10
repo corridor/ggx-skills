@@ -11,6 +11,8 @@ The skill tells the agent which GGX tools only read and which change data. It as
 
 GGX runs on your own instance. This repository installs no server and holds no credentials.
 
+Also on [skills.sh](https://skills.sh/corridor/ggx-skills/genguardx).
+
 ## Claude Code
 
 1. Set your instance URL, without `/mcp`, before you start Claude Code:
