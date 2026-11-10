@@ -1,37 +1,32 @@
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import type { ExtensionAPI, McpServerConfig } from "@earendil-works/pi-coding-agent";
 
 export default function (pi: ExtensionAPI) {
-  const ggxUrl = (process.env.GGX_URL?.trim() || "https://aisandbox.genguardx.ai");
-  const url = ggxUrl.replace(/\/$/, "") + "/mcp";
-  const headers: Record<string, string> = {};
+  const ggxUrlRaw = process.env.GGX_URL?.trim();
+  const ggxUrl = ggxUrlRaw && ggxUrlRaw !== "" ? ggxUrlRaw : undefined;
+  const baseUrl = ggxUrl || "https://aisandbox.genguardx.ai";
+  const url = baseUrl.replace(/\/$/, "") + "/mcp";
   const apiKey = process.env.GGX_API_KEY?.trim();
+  const headers: Record<string, string> = {};
   if (apiKey) {
     headers["Authorization"] = `Bearer ${apiKey}`;
   }
 
-  try {
-    // @ts-ignore - API shape as per docs
-    pi.registerMcpServer("genguardx", {
-      url,
-      headers: Object.keys(headers).length > 0 ? headers : undefined,
-    });
-  } catch (err) {
-    // best effort
-  }
+  const config: McpServerConfig = {
+    url,
+    headers: Object.keys(headers).length > 0 ? headers : undefined,
+  };
 
-  try {
-    pi.registerCommand("ggx", {
-      description: "Show GenGuardX connection info",
-      handler: async (_args, ctx) => {
-        const url = ggxUrl ? ggxUrl.replace(/\/$/, "") + "/mcp" : "not set";
-        const hasKey = Boolean(process.env.GGX_API_KEY?.trim());
-        ctx.ui.notify(
-          `GenGuardX: url=${url}, auth=${hasKey ? "api-key" : "oauth"}`,
-          "info",
-        );
-      },
-    });
-  } catch {
-    // ignore
-  }
+  pi.registerMcpServer("genguardx", config);
+
+  pi.registerCommand("ggx", {
+    description: "Show GenGuardX connection info",
+    handler: async (_args, ctx) => {
+      const displayUrl = ggxUrl ? ggxUrl.replace(/\/$/, "") + "/mcp" : baseUrl.replace(/\/$/, "") + "/mcp";
+      const hasKey = Boolean(apiKey);
+      ctx.ui.notify(
+        `GenGuardX: url=${displayUrl}, auth=${hasKey ? "api-key" : "oauth"}`,
+        "info",
+      );
+    },
+  });
 }

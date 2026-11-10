@@ -21,8 +21,8 @@
     "build": "tsc",
     "prepack": "node ../../scripts/copy-skill.js opencode && npm run build"
   },
-  "dependencies": {
-    "@opencode/plugin": "latest"
+  "peerDependencies": {
+    "@opencode/plugin": "^2.2.1"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
