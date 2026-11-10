@@ -8,3 +8,9 @@ __pycache__/
 venv/
 dist/
 build/
+
+node_modules/
+*.tgz
+
+# Generated skill copies
+packages/*/skills/
