@@ -2,6 +2,10 @@
 
 GenGuardX MCP server and skill for OpenCode.
 
+Requires OpenCode 2.2.1 or later. The plugin SDK is a runtime dependency:
+OpenCode installs plugin packages with their dependencies, and this plugin
+imports `Plugin` and skill schema constructors at runtime.
+
 ## Install
 
 ```sh

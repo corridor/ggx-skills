@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "description": "GenGuardX MCP server and skill for OpenCode",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corridor/ggx-skills.git",
+    "directory": "packages/opencode"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,11 +26,12 @@
     "build": "tsc",
     "prepack": "node ../../scripts/copy-skill.js opencode && npm run build"
   },
-  "peerDependencies": {
-    "@opencode/plugin": "^2.2.1"
+  "dependencies": {
+    "@opencode/plugin": "^2.2.1",
+    "yaml": "^2.8.1"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "@types/node": "^20.0.0"
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
   }
 }

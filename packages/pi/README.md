@@ -22,4 +22,6 @@ To use an API key instead of OAuth:
 export GGX_API_KEY=your-key
 ```
 
-Sign in with OAuth via `pi mcp login genguardx` if not using an API key. Use `/ggx` to show connection info.
+Start Pi and run `/mcp login genguardx` if not using an API key.
+The shell `pi mcp` commands do not load extension-registered servers.
+Use `/ggx` to show connection info.

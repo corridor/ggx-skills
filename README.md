@@ -107,7 +107,7 @@ To use an API key instead of OAuth, set `GGX_API_KEY`:
 export GGX_API_KEY=your-key
 ```
 
-Sign in with OAuth if not using an API key: `pi mcp login genguardx`. The skill is shipped with the package.
+Start Pi and run `/mcp login genguardx` if not using an API key. The skill is shipped with the package.
 
 ## OpenCode
 
